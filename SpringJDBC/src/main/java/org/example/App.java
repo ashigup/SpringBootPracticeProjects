@@ -1,6 +1,7 @@
 package org.example;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.studentDao.StudentDao;
@@ -17,8 +18,8 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "My program started ..... " );
-        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
-
+//        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+ApplicationContext context = new AnnotationConfigApplicationContext("org.example");
 //        JdbcTemplate template = context.getBean("jdbcTemplate", JdbcTemplate.class);
 //
 //        String query = "insert into student(id,name,city) values (?,?,?)";
@@ -30,7 +31,7 @@ public class App
 
         StudentDao studentDao = context.getBean("studentDao", StudentDaoImpl.class);
 
-//        int x = studentDao.insert(new Student(190,"Tarun","Jaipur"));
+        int x = studentDao.insert(new Student(199,"Testing","Dubai"));
 //        System.out.println("Record inserted : "+ x);
 
 //        System.out.println(studentDao.getStudent(456));
