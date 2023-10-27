@@ -1,12 +1,14 @@
 package org.example;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.studentDao.StudentDaoImpl;
 
 @Configuration
+@ComponentScan("org.studentDao")
 public class AppConfig {
 
     @Bean("ds")
@@ -26,10 +28,10 @@ public class AppConfig {
         template.setDataSource(getDataSource());
         return template;
     }
-    @Bean("studentDao")
-    public StudentDaoImpl getStudentDaoImpl(){
-        StudentDaoImpl studentDao = new StudentDaoImpl();
-        studentDao.setTemplate(getJdbcTemplate());
-        return studentDao;
-    }
+//    @Bean("studentDao")
+//    public StudentDaoImpl getStudentDaoImpl(){
+//        StudentDaoImpl studentDao = new StudentDaoImpl();
+//        studentDao.setTemplate(getJdbcTemplate());
+//        return studentDao;
+//    }
 }

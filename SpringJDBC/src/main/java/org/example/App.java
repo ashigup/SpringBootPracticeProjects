@@ -31,7 +31,7 @@ ApplicationContext context = new AnnotationConfigApplicationContext("org.example
 
         StudentDao studentDao = context.getBean("studentDao", StudentDaoImpl.class);
 
-        int x = studentDao.insert(new Student(199,"Testing","Dubai"));
+        int x = studentDao.insert(new Student(299,"Testing","Dubai"));
 //        System.out.println("Record inserted : "+ x);
 
 //        System.out.println(studentDao.getStudent(456));
