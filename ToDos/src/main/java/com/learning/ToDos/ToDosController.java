@@ -9,6 +9,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/todos")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ToDosController {
 
     @Autowired
